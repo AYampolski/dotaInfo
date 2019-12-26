@@ -1,48 +1,44 @@
 import { Injectable } from '@angular/core';
 
 import { HttpService } from './http.service';
-import { take, filter, map } from 'rxjs/operators';
-import { BehaviorSubject, Subject, Observable } from 'rxjs';
-import { TeamPlayers } from '../models/team.model';
+import { take, map } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
+import { TeamPlayer, TeamResponse } from '../models/team.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsAcitonsService {
-  selectedTeam;
-  teamPlayers = new Subject();
+  public selectedTeam: TeamResponse;
+  public teamPlayers = new Subject<TeamPlayer[]>();
 
   constructor(private http: HttpService) { }
 
-  setSelectedTeam(value){
-    console.log('service');
-    this.selectedTeam = value;
-    return this.getPlayers(value.team_id).pipe(take(1));
+  getPlayers(teamId: number): Observable<TeamPlayer[]> {
+    return this.http.getTeamPlayer(teamId).pipe(
+      map ( (players: TeamPlayer[] ) => {
+            return players.filter( item => {
+              return item.name;
+            });
+        })
+      );
   }
 
-  getPlayers(teamId: number) {
-    return this.http.getTeamPlayers(teamId).pipe(map (player => {
-      // console.log('new' , player.name);
-      const players = player.filter(item => {
-        return item.name !== null;
-      })
-      return players;
-    }));
-  }
-
-  setTeamPlayers() {
-    return this.teamPlayers.asObservable();
-  }
-
-  updateTeamPlayers(data) {
-    this.teamPlayers.next(data);
-  }
-
-  getTeams() {
+  getTeams(): Observable<TeamResponse[]>  {
     return this.http.getAllTeams();
   }
 
-  sortPlayersByActivity(players) {
+  setSelectedTeam(players: TeamResponse): Observable<TeamPlayer[]> {
+    this.selectedTeam = players;
+    return this.getPlayers(players.team_id).pipe(take(1));
+  }
+
+  updateTeamPlayer(players: TeamPlayer[]): void {
+    this.teamPlayers.next(players);
+  }
+
+
+  sortPlayersByActivity(players: TeamPlayer[]) {
     const currentPlayers = [];
     const formerPlayers = players.filter(player => {
       if (player.is_current_team_member) {
@@ -53,6 +49,6 @@ export class TeamsAcitonsService {
     return {
       currentPlayers,
       formerPlayers
-    }
+    };
   }
 }

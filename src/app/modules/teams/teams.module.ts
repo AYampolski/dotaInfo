@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 import { TeamsRoutingModule } from './teams-routing.module';
@@ -17,7 +18,8 @@ import { TeamStructureComponent } from './components/team-structure/team-structu
   imports: [
     CommonModule,
     TeamsRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class TeamsModule { }

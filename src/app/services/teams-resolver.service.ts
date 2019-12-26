@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
@@ -13,7 +13,6 @@ export class TeamsResolverService {
     private http: HttpService
   ) { }
   resolve(route: ActivatedRouteSnapshot, rstate: RouterStateSnapshot): Observable<any> {
-    console.log('RESOLVER!!!');
     return this.http.getAllTeams();
   }
 }

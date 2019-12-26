@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TeamResponse, TeamPlayers } from '../models/team.model';
+import { TeamResponse, TeamPlayer } from '../models/team.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +22,12 @@ export class HttpService {
     return this.http.get(this.heroUrl);
   }
 
-  getAllTeams(): Observable<TeamResponse> {
-    return this.http.get<TeamResponse>(this.teamsUrl);
+  getAllTeams(): Observable<TeamResponse[]> {
+    return this.http.get<TeamResponse[]>(this.teamsUrl);
   }
 
-  getTeamPlayers(teamId: number): Observable<Array<TeamPlayers>>{
-    return this.http.get<Array<TeamPlayers>>(`${this.teamsUrl}/${teamId}/players`);
+  getTeamPlayer(teamId: number): Observable<Array<TeamPlayer>> {
+    return this.http.get<Array<TeamPlayer>>(`${this.teamsUrl}/${teamId}/players`);
   }
 
   getLiveGames() {

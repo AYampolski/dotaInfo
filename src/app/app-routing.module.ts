@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'teams',
     loadChildren: () => import('./modules/teams/teams.module').then(mod => mod.TeamsModule),
     resolve: {
-      ss: TeamsResolverService
+      teams: TeamsResolverService
     }
   },
   {

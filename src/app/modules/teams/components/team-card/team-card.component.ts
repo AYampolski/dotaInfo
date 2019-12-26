@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TeamsAcitonsService } from '../../../../services/teams-acitons.service';
+import { TeamResponse } from 'src/app/models/team.model';
 
 
 @Component({
@@ -9,17 +10,16 @@ import { TeamsAcitonsService } from '../../../../services/teams-acitons.service'
 })
 export class TeamCardComponent implements OnInit {
 
-  @Input() team;
+  @Input() team: TeamResponse;
 
   constructor(public teamService: TeamsAcitonsService) { }
 
   ngOnInit() {
   }
 
-  onSelectTeam(e){
-    console.log(e);
-    this.teamService.setSelectedTeam(e).subscribe(val => {
-      this.teamService.updateTeamPlayers(val);
+  onSelectTeam(selectedTeam: TeamResponse) {
+    this.teamService.setSelectedTeam(selectedTeam).subscribe(val => {
+      this.teamService.updateTeamPlayer(val);
     });
   }
 

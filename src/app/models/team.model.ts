@@ -6,9 +6,10 @@ export interface TeamResponse {
   last_match_time: number;
   name: string;
   tag: string;
+  logo_url: string;
 }
 
-export interface TeamPlayers {
+export interface TeamPlayer {
   account_id: string;
   name: string;
   games_played: number;
