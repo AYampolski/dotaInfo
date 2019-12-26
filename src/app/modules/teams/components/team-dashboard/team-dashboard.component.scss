@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+
+
+}
+
+.team-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-structure {
+    flex: 1;
+    .some-el {
+        height: 500px;
+        // width: 300px;
+        width: 100%;
+        background: orangered;
+        position: fixed;
+    }
+
+}

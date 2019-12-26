@@ -1,0 +1,24 @@
+<mat-card class="team-card" (click)="onSelectTeam(team)">
+  <mat-card-header class="img-content">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title> {{ team.name }} </mat-card-title>
+    <mat-card-subtitle>{{ team.tag }}</mat-card-subtitle>
+    <img mat-card-image class="team-logo" [src]="team.logo_url" alt="Photo of a Shiba Inu" />
+  </mat-card-header>
+
+  <mat-card-content class="text-content">
+      <p>Rating: <span> {{team.rating}} </span></p>
+    <p>
+      Wins: <span>{{ team.wins }}</span>
+    </p>
+    <p>
+      Losses: <span>{{ team.losses }}</span>
+    </p>
+    <p>
+      Win Rate: <span>{{ ((100 * team.wins) /  (team.wins+team.losses)) | number:'0.0-2' }}  </span>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+
+  </mat-card-actions>
+</mat-card>

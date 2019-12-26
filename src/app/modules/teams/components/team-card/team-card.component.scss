@@ -1,0 +1,30 @@
+.team-card {
+    margin-bottom: 1.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.team-logo {
+    width: 100px;
+    display: block;
+}
+
+.img-content, .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+p {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+
+mat-card-subtitle {
+    text-align: center;
+}
+
+

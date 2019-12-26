@@ -1,0 +1,11 @@
+<mat-card  [ngClass]="{'team-structure' : !player.is_current_team_member, 'current' : player.is_current_team_member }"  >
+
+    <mat-card-content >
+        <p>Player: <span> {{player.name}} </span></p>
+        <p>Games Played: <span> {{player.games_played}} </span></p>
+        <!-- <p>Wins: <span> {{player.wins}} </span></p> -->
+        <p>Winrate: <span> {{ 100 * player.wins / player.games_played | number:'0.0-2'}}% </span></p>
+        <!-- <p>is_current_team_member: <span> {{player.is_current_team_member}} </span></p> -->
+    </mat-card-content>
+
+</mat-card>
