@@ -1,4 +1,4 @@
-image: node:10.9
+image: node:8.12.0
 
 pages:
   cache:
@@ -7,7 +7,7 @@ pages:
 
   stage: deploy
   script:
-  - npm install -g @angular/cli@8.3.21
+  - npm install -g @angular/cli@6.2.1
   - npm install
   - ng build
   - mv dist/dotaInfo/* public/
