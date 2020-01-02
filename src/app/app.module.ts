@@ -15,6 +15,7 @@ import { HeroesModule } from './modules/heroes/heroes.module';
 import { TeamsModule } from './modules/teams/teams.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
+import { PlayersModule } from './modules/players/players.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeScreenComponent } from './components/home-screen/home-screen.compon
     LiveModule,
     HeroesModule,
     TeamsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PlayersModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,21 @@
+<!-- <div class="container"> -->
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>Hero: {{ match.heroInfo.localized_name }}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p>KDA: {{ match.kills }} {{ match.assists }} {{ match.deaths }}</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Match duration: {{ match.duration }}</p>
+      <p>match_id: {{ match.match_id }}</p>
+      <p>start_time: {{ getTime(match.start_time) }}</p>
+      <p>xp_per_min: {{ match.xp_per_min }}</p>
+      <p>gold_per_min: {{ match.gold_per_min }}</p>
+      <p>herodamage: {{ match.hero_damage }}</p>
+      <p>towerDamage: {{ match.tower_damage }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+<!-- </div> -->

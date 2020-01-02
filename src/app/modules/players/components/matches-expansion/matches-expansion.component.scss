@@ -1,0 +1,17 @@
+.container {
+    // display: flex;
+    // flex-direction: column;
+}
+
+mat-expansion-panel-header {
+    display: flex;
+    flex-direction: row;
+
+    mat-panel-title {
+        flex: 1;
+    }
+
+    mat-panel-description {
+        flex: 1;
+    }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-player-card',
@@ -8,8 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlayerCardComponent implements OnInit {
 
   @Input() player;
-  constructor() { }
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  handleClick(){
+    console.log('!@#!@#!@#!@');
+    console.log(this.player.account_id);
+
+    this.router.navigate(['/player', this.player.account_id]);
+
   }
 }

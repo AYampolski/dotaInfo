@@ -4,11 +4,11 @@
     <app-team-card *ngFor="let team of teamList" [team]="team"></app-team-card>
   </div>
 
-  <div class="team-structure">
-    <h2 *ngIf="playerList">Total players: {{ playerList.length }}</h2>
+    <div class="team-structure">
+
     <app-team-structure
-      *ngFor="let player of playerList"
-      [player]="player"
+
     ></app-team-structure>
   </div>
+
 </div>

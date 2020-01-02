@@ -15,12 +15,15 @@ export class TeamDashboardComponent implements OnInit {
 
   teamList;
   playerList;
+  sortedItems;
   teamNumberLast = 20;
   teamNumberFirst = 0;
+  currentPlayers;
+  formerPlayers ;
 
   constructor(
     private actr: ActivatedRoute,
-    private teamAction: TeamsAcitonsService
+    // private teamAction: TeamsAcitonsService
     ) {
       this.actr.data.
         pipe(
@@ -30,11 +33,7 @@ export class TeamDashboardComponent implements OnInit {
            this.teamList = teams;
           });
 
-      this.teamAction.teamPlayers.subscribe( (players: TeamPlayer[]) => {
 
-        this.playerList = players;
-        const sortedItems = this.teamAction.sortPlayersByActivity(players);
-      });
   }
 
   ngOnInit() {

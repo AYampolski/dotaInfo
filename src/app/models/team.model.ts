@@ -17,4 +17,8 @@ export interface TeamPlayer {
   is_current_team_member: boolean;
 }
 
+export interface TeamsSorted {
+  currentPlayers: TeamPlayer[];
+  formerPlayers: TeamPlayer[];
+}
 

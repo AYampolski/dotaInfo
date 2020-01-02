@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { take, map } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
-import { TeamPlayer, TeamResponse } from '../models/team.model';
+import { TeamPlayer, TeamResponse, TeamsSorted } from '../models/team.model';
+import { PlayerMatches } from '../models/player.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsAcitonsService {
   public selectedTeam: TeamResponse;
-  public teamPlayers = new Subject<TeamPlayer[]>();
+  public teamPlayers = new Subject<TeamsSorted>();
 
   constructor(private http: HttpService) { }
 
@@ -24,6 +25,10 @@ export class TeamsAcitonsService {
       );
   }
 
+
+
+
+
   getTeams(): Observable<TeamResponse[]>  {
     return this.http.getAllTeams();
   }
@@ -33,8 +38,9 @@ export class TeamsAcitonsService {
     return this.getPlayers(players.team_id).pipe(take(1));
   }
 
-  updateTeamPlayer(players: TeamPlayer[]): void {
-    this.teamPlayers.next(players);
+  updateTeamPlayer(players): void {
+    const sortedPlayers = this.sortPlayersByActivity(players);
+    this.teamPlayers.next(sortedPlayers);
   }
 
 

@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    // justify-content: space-between;
+}
+
+.matches-expansion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.player-card {
+    flex: 1;
+}

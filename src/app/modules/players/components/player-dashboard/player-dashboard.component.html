@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="player-card">
+        <app-player-card [player]="player"></app-player-card>
+        <div>
+            <p>Patch: <span> {{currentPatch}} </span> </p>
+            <p>Win: <span>{{wl.win}}</span></p>
+            <p>Lose: <span>{{wl.lose }}</span></p>
+        </div>
+    </div>
+    <div class="matches-expansion">
+        <app-matches-expansion *ngFor="let match of newMatches" [match]="match"></app-matches-expansion>
+    </div>
+</div>

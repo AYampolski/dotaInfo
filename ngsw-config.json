@@ -33,15 +33,24 @@
       "cacheConfig": {
         "strategy": "performance",
         "maxAge": "30d",
-        "maxSize": 1
+        "maxSize": 40
       }
     },
     {
-      "name": "players-list",
+      "name": "team-list",
       "urls": ["https://api.opendota.com/api/teams"],
       "cacheConfig": {
         "strategy": "performance",
         "maxSize": 40,
+        "maxAge": "30d"
+      }
+    },
+    {
+      "name": "player-list",
+      "urls": ["https://api.opendota.com/api/players/"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 50,
         "maxAge": "30d"
       }
     }
